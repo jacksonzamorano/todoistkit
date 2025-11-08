@@ -1,4 +1,5 @@
 import Foundation
+import Observation
 
 public typealias TodoistResponse<DataType: Decodable> = Result<DataType, Todoist.Fault>
 
