@@ -6,6 +6,8 @@ public struct Command: Encodable, Sendable {
     var tempId: UUID = UUID()
     var args: Encodable & Sendable
     
+    public var createdRecordId: UUID { tempId }
+    
     enum CodingKeys: CodingKey {
         case args, type, uuid, tempId
     }
