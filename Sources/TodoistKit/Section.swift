@@ -34,13 +34,13 @@ public struct DeleteSectionRequest: Encodable, Sendable {
 }
 
 extension Command {
-    static func createSection(_ request: CreateSectionRequest) -> Self {
+    static public func createSection(_ request: CreateSectionRequest) -> Self {
         return Command(type: "section_add", args: request)
     }
-    static func deleteSection(_ request: DeleteSectionRequest) -> Self {
+    static public func deleteSection(_ request: DeleteSectionRequest) -> Self {
         return Command(type: "section_delete", args: request)
     }
-    static func updateSection(_ request: UpdateSectionRequest) -> Self {
+    static public func updateSection(_ request: UpdateSectionRequest) -> Self {
         return Command(type: "section_update", args: request)
     }
 }

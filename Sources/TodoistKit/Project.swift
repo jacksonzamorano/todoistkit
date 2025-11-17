@@ -74,19 +74,19 @@ public struct ProjectIdArguments: Encodable, Sendable {
 }
 
 extension Command {
-    static func createProject(_ arguments: CreateProjectArguments) -> Command {
+    static public func createProject(_ arguments: CreateProjectArguments) -> Command {
         return Command(type: "project_add", args: arguments)
     }
-    static func updateProject(_ arguments: UpdateProjectArguments) -> Command {
+    static public func updateProject(_ arguments: UpdateProjectArguments) -> Command {
         return Command(type: "project_update", args: arguments)
     }
-    static func archiveProject(_ arguments: ProjectIdArguments) -> Command {
+    static public func archiveProject(_ arguments: ProjectIdArguments) -> Command {
         return Command(type: "project_archive", args: arguments)
     }
-    static func unarchiveProject(_ arguments: ProjectIdArguments) -> Command {
+    static public func unarchiveProject(_ arguments: ProjectIdArguments) -> Command {
         return Command(type: "project_unarchive", args: arguments)
     }
-    static func deleteProject(_ arguments: ProjectIdArguments) -> Command {
+    static public func deleteProject(_ arguments: ProjectIdArguments) -> Command {
         return Command(type: "project_delete", args: arguments)
     }
 }
