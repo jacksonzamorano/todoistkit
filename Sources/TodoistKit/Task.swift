@@ -87,16 +87,16 @@ extension Command {
     public static func createTask(task: TodoistSession.CreateTaskRequest) -> Command {
         return  Command(type: "item_add", args: task)
     }
-    public static  func closeTask(id: String) -> Command {
+    public static func closeTask(id: String) -> Command {
         return Command(type: "item_close", args: TodoistSession.CompleteTaskRequest(id: id))
     }
-    public static  func reopenTask(id: String) -> Command {
+    public static func reopenTask(id: String) -> Command {
         return Command(type: "item_reopen", args: TodoistSession.ReopenTaskRequest(id: id))
     }
-    public static  func deleteTask(id: String) -> Command {
+    public static func deleteTask(id: String) -> Command {
         return Command(type: "item_delete", args: TodoistSession.DeleteTaskRequest(id: id))
     }
-    public static  func updateTask(update: TodoistSession.UpdateTaskRequest) -> Command {
+    public static func updateTask(update: TodoistSession.UpdateTaskRequest) -> Command {
         return Command(type: "item_update", args: update)
     }
 }

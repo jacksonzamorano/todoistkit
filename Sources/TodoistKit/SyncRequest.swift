@@ -1,5 +1,5 @@
 import Foundation
-struct Command: Encodable, Sendable {
+public struct Command: Encodable, Sendable {
     
     var type: String
     var uuid: UUID = UUID()
@@ -10,7 +10,7 @@ struct Command: Encodable, Sendable {
         case args, type, uuid, tempId
     }
     
-    func encode(to encoder: any Encoder) throws {
+    public func encode(to encoder: any Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(type, forKey: .type)
         try container.encode(uuid, forKey: .uuid)

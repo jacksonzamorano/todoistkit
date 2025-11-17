@@ -60,7 +60,7 @@ public class TodoistSession {
         self.coordinator = .init(token: token)
     }
     
-    func addCommand(_ command: Command) {
+    public func addCommand(_ command: Command) {
         self.pendingCommands.append(command)
     }
     
