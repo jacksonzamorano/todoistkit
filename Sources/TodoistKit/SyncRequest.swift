@@ -27,7 +27,7 @@ extension JSONEncoder {
     }
 }
 
-struct SyncReadRequest {
+struct SyncReadRequest: Sendable {
     var syncToken: String
     var resourceTypes: [String]
     
@@ -41,7 +41,7 @@ struct SyncReadRequest {
     }
 }
 
-struct SyncWriteRequest {
+struct SyncWriteRequest: Sendable {
     var commands: [Command]
 
     func toData() -> Data {

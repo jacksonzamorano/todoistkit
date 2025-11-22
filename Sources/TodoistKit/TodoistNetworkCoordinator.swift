@@ -3,7 +3,7 @@ import Foundation
 import FoundationNetworking
 #endif
 
-actor TodoistNetworkCoordinator {
+public actor TodoistNetworkCoordinator {
     var syncToken: String = "*"
     
     let baseURL: URL = URL(string: "https://api.todoist.com/")!
@@ -14,12 +14,12 @@ actor TodoistNetworkCoordinator {
     let urlSession = URLSession.shared
     let jsonDecoder: JSONDecoder = .init()
     
-    init(token: String) {
+    public init(token: String) {
         self.token = token
         self.jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
     }
     
-    func read() async throws -> Todoist.SyncReadResponse {
+    public func read() async throws -> Todoist.SyncReadResponse {
         let url = baseURL.appending(path: "api/v1/sync")
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -38,7 +38,7 @@ actor TodoistNetworkCoordinator {
         self.syncToken = decoded.syncToken
         return decoded
     }
-    func write(commands: [Command]) async throws -> Todoist.SyncWriteResponse {
+    public func write(commands: [Command]) async throws -> Todoist.SyncWriteResponse {
         let url = baseURL.appending(path: "api/v1/sync")
         var request = URLRequest(url: url)
         request.httpMethod = "POST"

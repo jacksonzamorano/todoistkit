@@ -1,17 +1,15 @@
 import Foundation
 extension Todoist {
-    struct SyncReadResponse: Codable, Sendable {
+    public struct SyncReadResponse: Codable, Sendable {
         var projects: [TodoistProject]
         var items: [TodoistTask]
         var sections: [TodoistSection]
         var syncToken: String
     }
-    struct SyncWriteResponse: Codable {
+    public struct SyncWriteResponse: Codable, Sendable {
         var syncToken: String
         var syncStatus: [String:String]
         var tempIdMapping: [String:String]
     }
 }
 
-extension TodoistSession {
-}

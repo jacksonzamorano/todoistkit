@@ -7,13 +7,13 @@ public class TodoistState {
     public var tasks: [TodoistTask] = []
     public var sections: [TodoistSection] = []
 
-    func update(with delta: Todoist.SyncReadResponse) {
+    public func update(with delta: Todoist.SyncReadResponse) {
         self.update(with: delta.items)
         self.update(with: delta.projects)
         self.update(with: delta.sections)
     }
     
-    func update(with delta: [TodoistSection]) {
+    public func update(with delta: [TodoistSection]) {
         if self.sections.isEmpty {
             self.sections = delta
             return
@@ -29,7 +29,7 @@ public class TodoistState {
             }
         }
     }
-    func update(with delta: [TodoistProject]) {
+    public func update(with delta: [TodoistProject]) {
         if self.projects.isEmpty {
             self.projects = delta
             return

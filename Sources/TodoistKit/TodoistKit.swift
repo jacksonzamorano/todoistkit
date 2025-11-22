@@ -49,6 +49,7 @@ public struct Update<T: Encodable & Sendable>: Encodable, Sendable {
 }
 
 @Observable
+@MainActor
 public class TodoistSession {
     public var state = TodoistState()
     
